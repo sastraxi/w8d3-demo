@@ -2,7 +2,16 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import { get } from './backend';
+
 class App extends Component {
+
+  componentDidMount() {
+    get('/').then(res => {
+      debugger;
+    });
+  }
+
   render() {
     return (
       <div className="App">
