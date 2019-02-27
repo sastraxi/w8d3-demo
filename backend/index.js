@@ -7,7 +7,17 @@ const app = express();
 app.use(cors({
   // dynamic CORS: parrot back the Origin header from the HTTP request
   origin: (origin, callback) => callback(null, true),
+  credentials: true,
 }));
+
+app.get('/user', (req, res) => {
+  res.status(200).json({
+    id: 50,
+    name: 'Bob',
+    email: 'bob@realpeople.com',
+    emailVerified: false,
+  })
+});
 
 app.get('/', (req, res) => {
   res.status(200).send('Things are working!');
